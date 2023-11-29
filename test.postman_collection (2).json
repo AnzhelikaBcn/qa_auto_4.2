@@ -1,0 +1,479 @@
+{
+	"info": {
+		"_postman_id": "d92e34a9-18f2-41b2-8948-5acbb4f73d3b",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28422607",
+		"_collection_link": "https://gold-spaceship-869196.postman.co/workspace/f64cc788-2c41-4238-81c9-8dd4d63076ad/collection/28422607-d92e34a9-18f2-41b2-8948-5acbb4f73d3b?action=share&source=collection_link&creator=28422607"
+	},
+	"item": [
+		{
+			"name": "register_correct_variables",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"    const response = pm.response.json();",
+							"    console.log(\"Response Body:\", response);",
+							"",
+							"    "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"login\": \"{{clientName}}\",\n  \"email\": \"{{clientEmail}}\",\n  \"password\": \"retyuii345\",\n  \"langKey\": \"en\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{url}}/api/register"
+			},
+			"response": []
+		},
+		{
+			"name": "create_task_admin Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Проверка статуса ответа",
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"try {",
+							"    // Попытка парсинга JSON и вывод в консоль",
+							"    const response = pm.response.json();",
+							"    console.log(\"Response Body:\", response);",
+							"",
+							"    // Ваш дополнительный код для проверок",
+							"    pm.test(\"Your Additional Test\", () => {",
+							"        // Ваш код проверки тела ответа",
+							"    });",
+							"} catch (error) {",
+							"    console.error(\"Error parsing JSON:\", error);",
+							"    pm.test(\"JSON Parsing Error\", () => {",
+							"        pm.expect.fail(\"Failed to parse JSON\");",
+							"    });",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcwMTM0MjAwMywiYXV0aCI6IlJPTEVfQURNSU4iLCJpYXQiOjE3MDEyNTU2MDN9.ODmg8G95evenO00GGjJbxMtWZJuzQ6b2dEcbxWEUtG6MLgJCz4ZjWx-ObwYh8xKSWxluDvAUa0bs1x0u85Ffgw"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": null,\n    \"text\": \"API\",\n    \"answer\": \"postman\",\n    \"title\": \"intagration testing\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sqlverifier-50d286d70656.herokuapp.com/api/tasks",
+					"protocol": "https",
+					"host": [
+						"sqlverifier-50d286d70656",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "isSolved",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_task_admin Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Проверка статуса ответа",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"try {",
+							"    // Попытка парсинга JSON и вывод в консоль",
+							"    const response = pm.response.json();",
+							"    console.log(\"Response Body:\", response);",
+							"",
+							"    // Ваш дополнительный код для проверок",
+							"    pm.test(\"Your Additional Test\", () => {",
+							"        // Ваш код проверки тела ответа",
+							"    });",
+							"} catch (error) {",
+							"    console.error(\"Error parsing JSON:\", error);",
+							"    pm.test(\"JSON Parsing Error\", () => {",
+							"        pm.expect.fail(\"Failed to parse JSON\");",
+							"    });",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcwMTM0MjAwMywiYXV0aCI6IlJPTEVfQURNSU4iLCJpYXQiOjE3MDEyNTU2MDN9.ODmg8G95evenO00GGjJbxMtWZJuzQ6b2dEcbxWEUtG6MLgJCz4ZjWx-ObwYh8xKSWxluDvAUa0bs1x0u85Ffgw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": null,\n    \"text\": \"API\",\n    \"answer\": \"postman\",\n    \"title\": \"intagration testing\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sqlverifier-50d286d70656.herokuapp.com/api/tasks?page=0&size=100",
+					"protocol": "https",
+					"host": [
+						"sqlverifier-50d286d70656",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "id",
+							"value": "35163",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_id_task_admin Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Проверка статуса ответа",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"try {",
+							"    // Попытка парсинга JSON и вывод в консоль",
+							"    const response = pm.response.json();",
+							"    console.log(\"Response Body:\", response);",
+							"",
+							"    // Ваш дополнительный код для проверок",
+							"    pm.test(\"Your Additional Test\", () => {",
+							"        // Ваш код проверки тела ответа",
+							"    });",
+							"} catch (error) {",
+							"    console.error(\"Error parsing JSON:\", error);",
+							"    pm.test(\"JSON Parsing Error\", () => {",
+							"        pm.expect.fail(\"Failed to parse JSON\");",
+							"    });",
+							"}",
+							"        "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcwMTM0MjAwMywiYXV0aCI6IlJPTEVfQURNSU4iLCJpYXQiOjE3MDEyNTU2MDN9.ODmg8G95evenO00GGjJbxMtWZJuzQ6b2dEcbxWEUtG6MLgJCz4ZjWx-ObwYh8xKSWxluDvAUa0bs1x0u85Ffgw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sqlverifier-50d286d70656.herokuapp.com/api/tasks/35175",
+					"protocol": "https",
+					"host": [
+						"sqlverifier-50d286d70656",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"tasks",
+						"35175"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "20",
+							"disabled": true
+						},
+						{
+							"key": "isSolved",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_task_admin_random Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Проверка статуса ответа",
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"try {",
+							"    // Попытка парсинга JSON и вывод в консоль",
+							"    const response = pm.response.json();",
+							"    console.log(\"Response Body:\", response);",
+							"",
+							"    // Ваш дополнительный код для проверок",
+							"    pm.test(\"Your Additional Test\", () => {",
+							"        // Ваш код проверки тела ответа",
+							"    });",
+							"} catch (error) {",
+							"    console.error(\"Error parsing JSON:\", error);",
+							"    pm.test(\"JSON Parsing Error\", () => {",
+							"        pm.expect.fail(\"Failed to parse JSON\");",
+							"    });",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcwMTM0MjAwMywiYXV0aCI6IlJPTEVfQURNSU4iLCJpYXQiOjE3MDEyNTU2MDN9.ODmg8G95evenO00GGjJbxMtWZJuzQ6b2dEcbxWEUtG6MLgJCz4ZjWx-ObwYh8xKSWxluDvAUa0bs1x0u85Ffgw"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": null,\n    \"text\": \"{{$randomAbbreviation}}\",\n    \"answer\": \"{{$randomAbbreviation}}\",\n    \"title\": \"{{$randomAbbreviation}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sqlverifier-50d286d70656.herokuapp.com/api/tasks",
+					"protocol": "https",
+					"host": [
+						"sqlverifier-50d286d70656",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "20",
+							"disabled": true
+						},
+						{
+							"key": "isSolved",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change_task_admin Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Проверка статуса ответа",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"try {",
+							"    // Попытка парсинга JSON и вывод в консоль",
+							"    const response = pm.response.json();",
+							"    console.log(\"Response Body:\", response);",
+							"",
+							"    // Ваш дополнительный код для проверок",
+							"    pm.test(\"Your Additional Test\", () => {",
+							"        // Ваш код проверки тела ответа",
+							"    });",
+							"} catch (error) {",
+							"    console.error(\"Error parsing JSON:\", error);",
+							"    pm.test(\"JSON Parsing Error\", () => {",
+							"        pm.expect.fail(\"Failed to parse JSON\");",
+							"    });",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcwMTM0NDgwNywiYXV0aCI6IlJPTEVfQURNSU4iLCJpYXQiOjE3MDEyNTg0MDd9.H4oszqmkLW5wAjdIjqYQ8W6rn2SioGDPMxnJ6CmBL_3ujHeyQBBD0a8_P85YjJgSbyil7RC57ApHzYyQwjH3zQ"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 35175,\n    \"text\": \"API\",\n    \"answer\": \"postman\",\n    \"title\": \"***NEW!!!! intagration testing 123425\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sqlverifier-50d286d70656.herokuapp.com/api/tasks/35175",
+					"protocol": "https",
+					"host": [
+						"sqlverifier-50d286d70656",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"tasks",
+						"35175"
+					],
+					"query": [
+						{
+							"key": "isSolved",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_task_admin Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Проверка статуса ответа",
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcwMTM2NTMwMCwiYXV0aCI6IlJPTEVfQURNSU4iLCJpYXQiOjE3MDEyNzg5MDB9.Z-Rd-iGQ2DD0yNaA_eVaMZaaKX-V_XPeYdrciKPaDCFJuY78fzZ6YvcTonRZIU7Die_5DA09VMNVWiQ1xW9xpA"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://sqlverifier-50d286d70656.herokuapp.com/api/user-tasks/32555"
+			},
+			"response": []
+		}
+	]
+}
